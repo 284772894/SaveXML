@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <title>农迈接口测试</title>
+    <InterfaceList>
+        <name>首页图片</name>
+        <method>GET</method>
+        <url>/api/v1.0/pictures/revolvepictures.ashx?</url>
+        <params>{"PageSize":6,"PageNow":1}</params>
+        <Function>revolvepictures</Function>
+    </InterfaceList>
+    <InterfaceList>
+        <name>商品类别列表</name>
+        <method>POST</method>
+        <url>/api/v1.0/basedata/goodstypes.ashx</url>
+        <params></params>
+        <Function>GoodsTypes</Function>
+    </InterfaceList>
+</root>
