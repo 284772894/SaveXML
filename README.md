@@ -5,3 +5,9 @@ js保存xml,txt文件到本地
 index.xhtml 是保存文件到本地
 
 toHtml.html 在线是转义html
+
+![savexml](savexml.png  "savexml")
+
+![toHtml](tohtml.png  "toHtml")
+
+
