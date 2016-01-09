@@ -28,7 +28,7 @@ var
 	, text = $("text")
 	, text_options_form = $("text-options")
 	, text_filename = $("text-filename")
-text_options_form.addEventListener("submit", function(event) {
+text_options_form.onsubmit=function(event) {
 	event.preventDefault();
 	var BB = get_blob();
 	saveAs(
@@ -38,16 +38,5 @@ text_options_form.addEventListener("submit", function(event) {
 		)
 		, (text_filename.value || text_filename.placeholder) + ".xml"
 	);
-}, false);
-
-
-view.addEventListener("unload", function() {
-	session.x_points = JSON.stringify(x_points);
-	session.y_points = JSON.stringify(y_points);
-	session.drag_points = JSON.stringify(drag_points);
-	session.canvas_filename = canvas_filename.value;
-
-	session.text = text.value;
-	session.text_filename = text_filename.value;
-}, false);
+};
 }(self));

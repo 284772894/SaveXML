@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>FileSaver.js demo</title>
+    <!--<link rel="stylesheet" type="text/css" href="css/demo.css"/>-->
+    <script type="application/javascript" src="js/Blob.js"></script>
+    <script type="application/javascript" src="js/canvas-toBlob.js"></script>
+    <script type="application/javascript" src="js/FileSaver.js"></script>
+    <script src="js/jquery-1.11.2.min.js"></script>
+    <script src="js/common.js"></script>
+    <style>
+        .border{border: 1px solid red;}
+    </style>
+</head>
+<body>
+<div style="margin-top: 30px;">
+    <table cellpadding="1" cellspacing="1" border="1" align="center">
+        <thead>
+        <tr>
+            <th colspan="6">
+                接口测试参数生成器
+            </th>
+        </tr>
+        <tr>
+            <th>用例ID</th>
+            <th>接口名称</th>
+            <th>接口方法</th>
+            <th>接口url</th>
+            <th>参数</th>
+            <th>自定义函数</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr id="i_list">
+            <td><input type="text" class="i_id"/></td>
+            <td><input type="text" class="i_name"/></td>
+            <td><input type="text" class="i_method" placeholder="GET,POST"/></td>
+            <td><input type="text" class="i_url"/></td>
+            <td><input type="text" class="i_params"/></td>
+            <td><input type="text" class="i_function"/></td>
+        </tr>
+        </tbody>
+    </table>
+    <p style="width: 200px; margin: 0 auto; margin-top: 10px;">
+        <input type="button" value="新增接口行" id="btn_add" />
+        <input type="button" value="生成XML" id="btn_save" />
+    </p>
+</div>
+</body>
+</html>

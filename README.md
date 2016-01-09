@@ -1,13 +1,8 @@
-js保存xml,txt文件到本地
+#js保存xml,txt文件到本地
 
-更多参考：https://github.com/eligrey/FileSaver.js
+* 主要是参考：https://github.com/eligrey/FileSaver.js
+![savexml](savexml1.png  "savexml")
+* 主要用于在线生成接口xml然后给其他语言解析。[我的接口自动化平台](https://github.com/284772894/autoHttpApiTest)
 
-index.xhtml 是保存文件到本地
-
-toHtml.html 在线是转义html
-
-![savexml](savexml.png  "savexml")
-
-![toHtml](tohtml.png  "toHtml")
 
 

@@ -2,6 +2,7 @@
 <root>
     <title>农迈接口测试</title>
     <InterfaceList>
+        <id>1001</id>
         <name>首页图片</name>
         <method>GET</method>
         <url>/api/v1.0/pictures/revolvepictures.ashx?</url>
@@ -9,6 +10,7 @@
         <Function>revolvepictures</Function>
     </InterfaceList>
     <InterfaceList>
+        <id>1002</id>
         <name>商品类别列表</name>
         <method>POST</method>
         <url>/api/v1.0/basedata/goodstypes.ashx</url>
