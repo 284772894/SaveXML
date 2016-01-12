@@ -19,6 +19,30 @@
         <thead>
         <tr>
             <th colspan="6">
+                配置信息
+            </th>
+        </tr>
+        <tr>
+            <th>项目名称</th>
+            <th>域名</th>
+            <th>端口</th>
+            <th>指定接口ID</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><input type="text" id="tb_title" /></td>
+            <td><input type="text" id="tb_host" /></td>
+            <td><input type="text" id="tb_port" /></td>
+            <td><input type="text" id="tb_No" value="[]" /></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <table cellpadding="1" cellspacing="1" border="1" align="center" style="margin-top: 30px;">
+        <thead>
+        <tr>
+            <th colspan="6">
                 接口测试参数生成器
             </th>
         </tr>
@@ -28,17 +52,19 @@
             <th>接口方法</th>
             <th>接口url</th>
             <th>参数</th>
-            <th>自定义函数</th>
+            <th>预期结果</th>
+            <!--<th>自定义函数</th>-->
         </tr>
         </thead>
-        <tbody>
+        <tbody id="t_body">
         <tr id="i_list">
             <td><input type="text" class="i_id"/></td>
             <td><input type="text" class="i_name"/></td>
             <td><input type="text" class="i_method" placeholder="GET,POST"/></td>
             <td><input type="text" class="i_url"/></td>
             <td><input type="text" class="i_params"/></td>
-            <td><input type="text" class="i_function"/></td>
+            <td><input type="text" class="i_hope_result"/></td>
+            <!--<td><input type="text" class="i_function"/></td>-->
         </tr>
         </tbody>
     </table>

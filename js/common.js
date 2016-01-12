@@ -12,7 +12,7 @@ $(function(){
         table += "<td><input class=\"i_method\" type=\"text\" placeholder=\"GET,POST\"/></td>";
         table += "<td><input class=\"i_url\" type=\"text\" /></td>";
         table += "<td><input class=\"i_params\" type=\"text\" /></td>";
-        table += "<td><input class=\"i_function\" type=\"text\" /></td>";
+        table += "<td><input class=\"i_hope_result\" type=\"text\" /></td>";
         table += "<td><input class=\"btn_del\" type=\"button\" value='删除' /></td>";
         table += "</tr>";
        $("#i_list").parent().append(table);
@@ -23,12 +23,12 @@ $(function(){
 
         $(".i_id").each(function(){
             if($(this).val()==""){
-                flag = false
+                flag = false;
             }
         });
         $(".i_name").each(function(){
             if($(this).val()==""){
-                flag = false
+                flag = false;
             }
         });
         $(".i_method").each(function(){
@@ -38,19 +38,22 @@ $(function(){
         });
         $(".i_url").each(function(){
             if($(this).val()==""){
-                flag = false
+                flag = false;
             }
         });
         $(".i_params").each(function(){
             if($(this).val()==""){
-                flag = false
+                flag = false;
             }
         });
         $(".i_function").each(function(){
             if($(this).val()==""){
-                flag = false
+                flag = false;
             }
         });
+       if($("#tb_title").val() == "" || $("#tb_port").val()==""||$("#tb_host").val()==""){
+           flag = false;
+       }
         if(flag){
             savexml(e);
         }
@@ -58,7 +61,7 @@ $(function(){
     $(document).on("click",".btn_del",function(){
         $(this).parents("tr").remove()
     });
-    $(document).on("focus",".i_id,.i_name,.i_method,.i_url,.i_params,.i_function",function(){
+    $(document).on("focus",".i_id,.i_name,.i_method,.i_url,.i_params,.i_function,#tb_host,#tb_prot,#tb_title",function(){
         if($(this).hasClass("border")){
             $(this).removeClass("border");
         }
@@ -68,13 +71,17 @@ function savexml(e){
     var xml="";
     xml += "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
     xml += "<root>";
-    $("tbody tr").each(function(){
+    xml += "<title>"+$("#tb_title").val()+"</title>";
+    xml += "<host>"+$("#tb_host").val()+"</host>";
+    xml += "<port>"+$("#tb_port").val()+"</port>";
+    xml += "<No>"+$("#tb_No").val()+"</No>";
+    $("tbody#t_body tr").each(function(){
             xml += "<InterfaceList>";
             xml += "<id>"+$(this).find(".i_id").val()+"</id>";
             xml += "<name>"+$(this).find(".i_name").val()+"</name>";
             xml += "<method>"+$(this).find(".i_method").val()+"</method>";
             xml += "<url>"+$(this).find(".i_url").val()+"</url>";
-            xml += "<Function>"+$(this).find(".i_function").val()+"</Function>";
+            xml += "<hope>"+$(this).find(".i_hope_result").val()+"</hope>";
             xml += "<params>"+$(this).find(".i_params").val()+"</params>";
             xml += "</InterfaceList>"
     });
@@ -91,7 +98,7 @@ function savexml(e){
     );
 }
 function check(){
-    $(".i_id,.i_name,.i_method,.i_url,.i_params,.i_function").each(function(index,list){
+    $(".i_id,.i_name,.i_method,.i_url,.i_params,.i_hope_result,#tb_host,#tb_prot,#tb_title").each(function(index,list){
         if($(this).val()==""){
             $(this).addClass("border");
         }
