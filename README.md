@@ -10,3 +10,8 @@
 * 接口生成器改成支持生成域名，接口产生，只要生成一次就可以了
 ![在线生成接口xml](savexml2.png  "在线生成接口xml")
 
+### 更新历史 2016-1-16
+* 非必填内容可不填
+* 更新说明文档
+
+[说明文档](https://github.com/284772894/autoHttpApiTest/blob/master/remark.md)
