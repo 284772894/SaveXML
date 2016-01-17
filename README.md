@@ -12,6 +12,4 @@
 
 ### 更新历史 2016-1-16
 * 非必填内容可不填
-* 更新说明文档
-
-[说明文档](https://github.com/284772894/autoHttpApiTest/blob/master/remark.md)
+* 更新说明文档 请参考[说明文档](https://github.com/284772894/SaveXML/blob/master/remark.md)
