@@ -60,9 +60,28 @@
         <tr id="i_list">
             <td><input type="text" class="i_id"/></td>
             <td><input type="text" class="i_name"/></td>
-            <td><input type="text" class="i_method" placeholder="GET,POST"/></td>
+            <!--<td><input type="text" class="i_method" placeholder="GET,POST"/></td>-->
+            <td>
+                <select class="sel_method">
+                    <option value="1">GET</option>
+                    <option value="2">POST</option>
+                </select>
+            </td>
             <td><input type="text" class="i_url"/></td>
-            <td><input type="text" class="i_params" placeholder="没有则不填"/></td>
+            <!--<td><input type="text" class="i_params" placeholder="没有则不填"/></td>-->
+            <td>
+                <input type="text" class="i_params" placeholder="登陆参数"/>
+                <select id="sel_lg">
+                    <option value="0">不需要登陆后的参数</option>
+                    <option value="userId">需要登陆后的userId</option>
+                    <option value="Token">需要登陆后的Token</option>
+                </select>
+                <select id="sel_pwd">
+                    <option value="0">无加密</option>
+                    <option value="1">md5加密</option>
+                    <option value="2">rsa加密</option>
+                </select>
+            </td>
             <td><input type="text" class="i_hope_result"/></td>
             <!--<td><input type="text" class="i_function"/></td>-->
         </tr>

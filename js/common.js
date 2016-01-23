@@ -4,14 +4,21 @@
 $(function(){
     session = sessionStorage;
     get_blob = function() {return Blob;};
+
     $("#btn_add").click(function() {
         var table = "";
         table += "<tr>";
         table += "<td><input class=\"i_id\" type=\"text\" /></td>";
         table += "<td><input class=\"i_name\" type=\"text\" /></td>";
-        table += "<td><input class=\"i_method\" type=\"text\" placeholder=\"GET,POST\"/></td>";
+        //table += "<td><input class=\"i_method\" type=\"text\" placeholder=\"GET,POST\"/></td>";
+        table += "<td><select class='sel_method'><option value='0'>GET</option><option value='1'>POST</option><</select> </td>";
         table += "<td><input class=\"i_url\" type=\"text\" /></td>";
-        table += "<td><input class=\"i_params\" type=\"text\" placeholder=\"没有则不填\" /></td>";
+        table += "<td><input class=\"i_params\" type=\"text\" placeholder=\"没有则不填\" />" +
+                    "<select class='sel_login'>" +
+                        "<option value='0'>不需要登陆后的参数</option>" +
+                        "<option value='1'>需要登陆后的参数</option>" +
+                    "</select>" +
+                "</td>";
         table += "<td><input class=\"i_hope_result\" type=\"text\" /></td>";
         table += "<td><input class=\"btn_del\" type=\"button\" value='删除' /></td>";
         table += "</tr>";
@@ -75,19 +82,38 @@ function savexml(e){
         xml += "<No>[]</No>";
     }
     $("tbody#t_body tr").each(function(){
-            xml += "<InterfaceList>";
-            xml += "<id>"+$(this).find(".i_id").val()+"</id>";
-            xml += "<name>"+$(this).find(".i_name").val()+"</name>";
-            xml += "<method>"+$(this).find(".i_method").val()+"</method>";
-            xml += "<url>"+$(this).find(".i_url").val()+"</url>";
-            xml += "<hope>{"+$(this).find(".i_hope_result").val()+"}</hope>";
-            if($(this).find(".i_params").val()!="") {
-                xml += "<params>{"+$(this).find(".i_params").val()+"}</params>";
-            } else {
-                xml += "<params>{}</params>";
+            if($(this).attr("id")=="i_list"){
+                xml += "<InterfaceList>";
+                xml += "<id>"+$(this).find(".i_id").val()+"</id>";
+                xml += "<name>"+$(this).find(".i_name").val()+"</name>";
+                xml += "<method>"+$(".sel_method").find("option:selected").text()+"</method>";
+                xml += "<url>/"+$(this).find(".i_url").val()+"?</url>";
+                xml += "<hope>"+$("#sel_lg").find("option:selected").val()+"</hope>";
+                if($(this).find(".i_params").val()!="") {
+                    xml += "<params>{"+$(this).find(".i_params").val()+"}</params>";
+                } else {
+                    xml += "<params>{}</params>";
 
+                }
+                xml += "<login>0</login>";
+                xml += "</InterfaceList>"
+            } else{
+                xml += "<InterfaceList>";
+                xml += "<id>"+$(this).find(".i_id").val()+"</id>";
+                xml += "<name>"+$(this).find(".i_name").val()+"</name>";
+                xml += "<method>"+$(".sel_method").find("option:selected").text()+"</method>";
+                xml += "<url>"+$(this).find(".i_url").val()+"</url>";
+                xml += "<hope>"+$(this).find(".i_hope_result").val()+"</hope>";
+                if($(this).find(".i_params").val()!="") {
+                    xml += "<params>{"+$(this).find(".i_params").val()+"}</params>";
+                } else {
+                    xml += "<params>{}</params>";
+
+                }
+                xml += "<login>"+$(".sel_login").find("option:selected").val()+"</login>";
+                xml += "</InterfaceList>"
             }
-            xml += "</InterfaceList>"
+
     });
     xml+= "</root>";
     console.log(xml);
