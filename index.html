@@ -11,11 +11,16 @@
     <script src="js/common.js"></script>
     <style>
         .border{border: 1px solid red;}
+        .ab,.ab1{position: absolute; top: 30px;border: 1px solid #ccc;display:none; min-height: 100px;z-index: 10;background: #cccccc; min-width: 120px;}
+        .ab1{min-width: 220px;}
+        .i_add_params,.i_add_params_value,.i_add_params_value_1,.i_add_params_1,.i_add_params_k_son,.i_add_params_v_son{ width: 50px; }
+        .son_param{margin-left: 10px;}
+        .rel{position: relative;}
     </style>
 </head>
 <body>
 <div style="margin-top: 30px;">
-    <table cellpadding="1" cellspacing="1" border="1" align="center">
+    <table cellpadding="1" cellspacing="1" border="1" >
         <thead>
         <tr>
             <th colspan="6">
@@ -39,7 +44,7 @@
         </tbody>
     </table>
 
-    <table cellpadding="1" cellspacing="1" border="1" align="center" style="margin-top: 30px;">
+    <table cellpadding="1" cellspacing="1" border="1"  style="margin-top: 30px;">
         <thead>
         <tr>
             <th colspan="6">
@@ -53,14 +58,12 @@
             <th>接口url</th>
             <th>参数</th>
             <th>预期结果</th>
-            <!--<th>自定义函数</th>-->
         </tr>
         </thead>
         <tbody id="t_body">
         <tr id="i_list">
             <td><input type="text" class="i_id"/></td>
             <td><input type="text" class="i_name"/></td>
-            <!--<td><input type="text" class="i_method" placeholder="GET,POST"/></td>-->
             <td>
                 <select class="sel_method">
                     <option value="1">GET</option>
@@ -68,11 +71,15 @@
                 </select>
             </td>
             <td><input type="text" class="i_url"/></td>
-            <!--<td><input type="text" class="i_params" placeholder="没有则不填"/></td>-->
-            <td>
-                <input type="text" class="i_params" placeholder="登陆参数"/>
-                <select id="sel_lg">
-                    <option value="0">不需要登陆后的参数</option>
+            <td class="rel">
+                <input type="button" class="b_params" value="接口参数">
+                <div class='ab' >
+                    <p>
+                        <input type="button" value="新增" class="btn_add_">
+                        <input type="button" value="保存" class="btn_save">
+                    </p>
+                </div>
+                <select class="sel_login">
                     <option value="userId">需要登陆后的userId</option>
                     <option value="Token">需要登陆后的Token</option>
                 </select>
@@ -82,7 +89,14 @@
                     <option value="2">rsa加密</option>
                 </select>
             </td>
-            <td><input type="text" class="i_hope_result"/></td>
+            <td class="rel ex_params">
+                <input type="button" class="b_ex_params" value="接口参数">
+                <div class='ab1' >
+                        <input type="button" value="新增" class="btn_add_1">
+                        <input type="button" value="保存" class="btn_save_1">
+                        <!--<input type="button" value="新增嵌套层" class="btn_data">-->
+                </div>
+            </td>
             <!--<td><input type="text" class="i_function"/></td>-->
         </tr>
         </tbody>
